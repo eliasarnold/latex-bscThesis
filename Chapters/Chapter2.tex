@@ -1,0 +1,174 @@
+\chapter{Evaluation}
+\section{Evaluation on Datasets}
+\label{sec:EvaluationOnDatasets} % Now, we can use "\autoref{sec:<my-label>}" to refer to this chapter
+The face segmentation network was tested on two different datasets 1.) The Caltech occluded faces in the wild (COFW) and 2.) parts-labeled LFW Dataset of the University of Massachusetts.\\
+\\
+Nirkin et al. \cite{nirkin2018_faceswap} claim that both the face itself an the context of the face play an important role for the outcome of the segmentation. To measure this effect and reduce the impact of outliers, we repeat each experiment multiple times with a different face and a different backgroundimage. Within a dataset The face and the backgroundimage stay the same. For the results we use the average of all results.
+\subsection{COFW}
+Since on the COFW dataset, only landmarks and bounding-boxes are given, the segmentation had to be evaluated qualitatively. We weren't able to count the correctly labeled pixels of the with respect to a ground-truth mask. To increase the precision of the network, we cropped the images according to the provided bounding-boxes. Because the bounding-boxes were only inluding the eyes and the mouth of the subject, we had to add an offset which was optically determined. Therefore, we measured the quality of the neural network only qualitatively. Nevertheless, we tried to reconstruct the graphic on Nirkis[1] github-page.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.75\textwidth]{Figures/myMatrix.jpg}
+	\caption{18 images of the COFW Dataset overlayd with the FCN output (in red). The given box was extended upwards by 80\%, to the right and left it was 55\% and downwards t was 5\%.}
+	\label{figure2}
+\end{figure}
+
+\newpage
+
+\subsection{Parts-LFW}
+In the Parts-LFW Database, we had a ground-truth mask for every image. Unfortunately, the FCN of Nirkin[1] segmented facial hair and on the masks, facial hair was excluded. So we had to manually remove these images. To reduce the effort, we took the Parts-LFT Validation set containing 500 images. After removing the ones with a beard or mustache, we were left with 447 images. The results are summarized in the following table:\\
+%\vspace{.5cm}\\
+\begin{figure}
+\begin{center}
+\begin{tabular}{l|l} \hline
+	false-positives (hair) & 7.04\%\\ \hline
+	false-positives (background) & 0.68\%\\ \hline
+	right-segmentations & 85.87\%\\ \hline
+	right non-sementations & 99.32\% \\ \hline
+\end{tabular}
+\end{center}
+\caption{\todo} 
+\label{fig:Parts-LFW}
+\end{figure}
+%\vspace{.5cm}
+
+\section{Evaluation on synthetic-data}
+In order to evaluate the FCN on synthetic-data, we used the Parametric-Face-Image-Generator of \cite{parametric} to produce images of a random face in a given pose. We extended the software so that it now renders occlusions over the face. Further, the Parametric-Face-Image-Generator now produces a Ground-Truth-Mask, which classifies every pixel either as part of the face or as non-face.
+
+\subsection{Dpendence of the Euler angles}
+Because we can now create synthetic face images in any desired pose, we first wanted to find out the accuracy of segmenting the FCN for the angles: Yaw, Roll, and Pitch. In order to do that, we produced with the tool of \cite{parametric} 101 face images for every angle from $-50$\textdegree to $50$\textdegree. In every picture, the face is turned one degree further. We evaluated each angle itself and every possible combination of the angles in order to to create a hierarchy under the angles:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{Figures/evaluation_angles.png}
+	\label{fig:evaluation_angles}
+	\caption{In the plots on the top row we see the segmetation accuracy in percent (on the y-axis) for every single image (with face angle from $-50$\textdegree to $50$\textdegree on the x-axis). The point cloud is approximated by a quadratic function via a least squares fit (red curve / $f(x)$). The first parameter of this function determines the opening angle ($p_1$). From these graphs we can conclude that the roll angle is the most relevant for the FCN. The pitch-angle is less important and that the accuracy of the FCN is still good even with hith angles (least important). In the bottom row the colors indicate the segmentation accuracy. The brighter the color, the better the segmentation. In every plot, there is a cluster of high accuracy segmentations centered in the origin. The angle on whose axis the cluster has the lesser extent is the more important of the two. We call an angle important, when a small change of this angle leads to a failure of the FCN. }
+\end{figure}
+
+\subsection{random boxes as occlusions}
+With the parametric-face-image-generator of \cite{parametric}, we produced about 5.2 thousand images of Which for every angle from $-40$\textdegree to $40$\textdegree  include 100 images of 5 different faces with 20 different occlusion levels. In the given table (Figure \ref{fig:angle_table}) all provided images show a face, from which 20\% of the pixels are occluded by a randomly colored box. We can optically verify, that 1) the yaw angle, despite the occluding box, hasn't much of an effect. 2.) In both situations, -40 and 40, of the roll angle, the result is not satisfying. 3.) In the third column, the segmentation with a negative pitch angle is much worse than with a positive one! Note that the results for each grid cell in figure \ref{fig:occVal40} is based on 5 segmentations (5200 images over all)!\\
+
+% The source for this table was this post: https://stackoverflow.com/questions/2771856/centering-text-horizontally-and-vertically-in-latex
+% To add padding for the cell contents: https://tex.stackexchange.com/questions/31672/column-and-row-padding-in-tables
+\begin{figure}[h]
+	\begin{center}
+		\newcolumntype{C}{>{\centering\arraybackslash} m{2cm} }  %# New column type
+		\begin{tabular}{m{1cm}|SC|SC|SC}
+			& yaw & roll & pitch\\ \hline
+			-40 & \subfloat{\includegraphics[width=0.1\textwidth]{Figures/-40_0_0_occVal_20.png}} &
+			\subfloat{\includegraphics[width=0.1\textwidth]{Figures/0_0_-40_occVal_20.png}} &
+			\subfloat{\includegraphics[width=0.1\textwidth]{Figures/0_-40_0_occVal_20.png}} \\ \hline
+			40 & \subfloat{\includegraphics[width=0.1\textwidth]{Figures/40_0_0_occVal_20.png}} &
+			\subfloat{\includegraphics[width=0.1\textwidth]{Figures/0_0_40_occVal_20.png}} &
+			\subfloat{\includegraphics[width=0.1\textwidth]{Figures/0_40_0_occVal_20.png}} \\
+		\end{tabular}
+	\end{center}
+	\caption{asdfasdf\todo}
+	\label{fig:angle_table}
+\end{figure}
+Although boxes as occlusions are very simpley and we're in control of the rectangle's size, we can occlude a given amount of the face region with this method, but in practice, exact rectangles are very rare. That's why we left it with the rectangles and used real-world objects (e.g. hands, microphones or sunglasses) as synthetic occlusions. Unlike Nirkin[1], we didn't use the landmarks of the face for this task. We placed them randomly on the image instead. Thats the reason why we use a second plot to show the percentage of occluded face pixels in the following.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{Figures/occVal_angles.png}
+	\caption{The color of each grid cell indicates the accuracy of the segmentation of the FCN on a set of faces turned by the corresponding angle and occluded with a square, so that the corresponding amount of the face is masked. The brighter the color, the better the segmentation. On each plot, we would expect to see a triangle pointing to the right. This means that the combination of a large angle and a large occlusion make the face even more unsegmentable.}
+	\label{fig:occVal40}
+\end{figure}
+We see that the segmentation is very sensitive to roll-angles and the FCN is not trained to segment faces in every rotation! Surprisingly, the yaw angle plays a subordinate role here. The right most plot tells us, that the sign of the pitch angle plays a significant role! Since we aren't able to determine at which angles exactly the FCN begins to fail,we repeated the experiment with a higher angle range:\\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{Figures/occVal_angles_90.png}
+	\caption{This plot shows the outcome of a similar expreiment as snown in Figure \ref{fig:occVal40} with less resolution. All the angles (yaw, pitch and roll) range from $-90$\textdegree to $90$ \textdegree. The scale on the "\%-occlusion" stays the same as in Figure \ref{fig:occVal40} We can clearly see the limits of the FCN even with a occlusion of 2\%! Very interestig is the hard transition from good segmentations to bad segmentations in the two right plots.}
+	\label{fig:occVal90}
+\end{figure}
+
+%\newpage
+%
+%\begin{figure}[t]
+%	\contcaption{This plot shows the outcome of a similar experiment as shown in Figure \ref{figure5} with less resolution. All the angles (yaw, pitch and roll) range from -90 to 90 dergrees. The scale on the "\%-occlusion" stays the same as in Figure \ref{figure5} We can clearly see the limits of the FCN even with a occlusion of 2\%! Very interestig is the hard transition from good segmentations to bad segmentations in the two right plots.}% Continued caption
+%\end{figure}
+
+%In the new version of the parametric-face-image-generator the option "occlusionMode" can now be set to:
+%\begin{itemize}
+%	\item \textbf{"random"}: A randomly choosen occlusion image hides the picture in a random place.
+%	\item \textbf{"box"}: Boxes, filled with either an arbitrary color or gaussian-white-noise hide the image.
+%	\item \textbf{"box-whitenoise"}: Boxes, filled with gaussian-white-noise only.
+%	\item \textbf{"eyes"}: Black boxes hiding the eyes on the face in the image.
+%\end{itemize}
+%In addition to the output Images, the parametric-face-image-generator now provides masks as well. They can be used as ground truth for the position of the face and te occlusion.
+%\subsection{Sub-Section}
+%
+%\subsubsection{Sub-Sub-Section}
+%
+%\paragraph{Paragraph}
+%
+%\subparagraph{Even Sub-Paragraph}
+%
+%This is the body text. Make sure that when you reference anything you use labels and references. When you refer to anything, you normally capitalise the type of object you reference to, e.g. Section~\ref{sec:EvaluationOnDatasets} instead of section~\ref{sec:my-label}. You may also just use the \texttt{cref} command and it will generate the label, e.g., for \cref{sec:my-label}, we did not specify the word ``Section''.\cite{turing:1950}
+%
+%Hint: Try to structure your labels as it is done with \texttt{sec:my-label} and \texttt{fig:machine}, etc.
+%
+%
+%
+%\section{Equations}
+%A Turing Machine is a 7-Tuple:
+%\begin{equation}
+%    M = \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle
+%\end{equation}
+%A Turing Machine is a 7-Tuple even if defined in the text, as in $M = \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$.
+%
+%
+%
+%
+%\section{Tables}
+%Some tables can also be used as shown in Table~\ref{tab:table}\footnote{Table captions are normally above the table.}. Remember that tables might be positioned elsewhere in the document. You can force positioning by putting a \texttt{ht!} in the definition.
+%
+%\begin{table}[ht!]
+%\centering
+%\caption{Frequency of Paper Citations. By the way: Make sure to put the label always after the caption, otherwise \LaTeX{} might reference wrongly!}
+%\begin{tabular}{lcl} \toprule
+%Title&$f$&Comments\\ \midrule
+%The chemical basis of morphogenesis & 7327 & \\ 
+%On computable numbers, with an application to the ... & 6347 & Turing Machine\\
+%Computing machinery and intelligence & 6130 & \\ \bottomrule
+%\end{tabular}
+%\label{tab:table}
+%\end{table}
+%
+%
+%
+%
+%\section{Figures}
+%Figures are nice to show concepts visually. For organising well your thesis, put all figures in the Figures folder. Figure~\ref{fig:machine} shows how to insert an image into your document. Figure~\ref{fig:tm} references a figure with multiple sub-figures. \todoMissing{Description of figure.}
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.9\textwidth]{turingmachine}
+%\caption{A Turing machine.}
+%\label{fig:machine}
+%\end{figure}
+%
+%
+%\begin{figure}
+%\centering
+%\subbottom[Turing Machine 1]{\includegraphics[width=0.2\textwidth]{block}\label{fig:tm:tm1}}
+%\subbottom[Turing Machine 2]{\includegraphics[width=0.2\textwidth]{block}\label{fig:tm:tm2}}
+%\subbottom[Turing Machine 3]{\includegraphics[width=0.2\textwidth]{block}\label{fig:tm:tm3}}
+%\subbottom[Turing Machine 4]{\includegraphics[width=0.2\textwidth]{block}\label{fig:tm:tm4}}
+%\caption{Plots of four Turing machines}
+%\label{fig:tm}
+%\end{figure}
+%
+%
+%
+%
+%\section{Packages}
+%These packages might be helpful for writing your thesis:
+%
+%\begin{description}
+%	\item[\texttt{caption}] to adjust the look of your captions
+%	\item[\texttt{glossaries}] for creating glossaries (also list of symbols)
+%	\item[\texttt{makeidx}] for indexes and the back of your document
+%	\item[\texttt{algorithm, algorithmicx, algpseudocode}] for adding algorithms to your document
+%\end{description}
