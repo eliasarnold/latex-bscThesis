@@ -10,16 +10,16 @@ Gerig, T., Forster, A., Blumer, C., Egger, B., L{\"{u}}thi, M.,
 \newblock {\em CoRR\/}, abs/1709.08398 (2017).
 \newblock \urlprefix\url{http://arxiv.org/abs/1709.08398}.
 
-\bibitem{mcculloch}
-McCulloch, W. and Pitts, W.
-\newblock A logical calculus of the ideas immanent in nervous activity.
-\newblock {\em Bulletin of Mathematical Biology\/}, 5(4):115--133 (1943).
-
 \bibitem{nirkin2018_faceswap}
 Nirkin, Y., Masi, I., Tran, A.~T., Hassner, T., Medioni, and Medioni, G.
 \newblock On Face Segmentation, Face Swapping, and Face Perception.
 \newblock In {\em IEEE Conference on Automatic Face and Gesture Recognition\/}
   (2018).
+
+\bibitem{mcculloch}
+McCulloch, W. and Pitts, W.
+\newblock A logical calculus of the ideas immanent in nervous activity.
+\newblock {\em Bulletin of Mathematical Biology\/}, 5(4):115--133 (1943).
 
 \bibitem{jlong}
 J.~Long, E.~S. and Darrell, T.
@@ -41,6 +41,13 @@ M.~Grundmann, M.~H., V.~Kwatra and Essa, I.
 Bernhard~Egger, A. S. A. K. A. M.-F. C. B. T.~V., Sandro~Schönborn.
 \newblock Occlusion-aware 3D Morphable Models and an Illumination Prior for
   Face Image Analysis (2018).
+
+\bibitem{Uricar}
+Uricar, M., Franc, V., Thomas, D., Sugimoto, A., and Hlavac, V.
+\newblock Real-time multi-view facial landmark detector learned by the
+  structured output SVM.
+\newblock In {\em 2015 11th IEEE International Conference and Workshops on
+  Automatic Face and Gesture Recognition (FG)\/}, volume~02, pages 1--8 (2015).
 
 \bibitem{SaitoEtAl}
 Saito, S., Li, T., and Li, H.

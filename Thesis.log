@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.17)  17 JUL 2018 13:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.17)  19 JUL 2018 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1736,110 +1736,128 @@ LaTeX Font Info:    Try loading font information for T1+phv on input line 1.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-<Figures/chap1/classicalCNN.JPG, id=169, 944.7797pt x 246.9225pt>
+<Figures/chap1/classicalCNN.JPG, id=170, 944.7797pt x 246.9225pt>
 File: Figures/chap1/classicalCNN.JPG Graphic file (type jpg)
 
 <use Figures/chap1/classicalCNN.JPG>
-Package pdftex.def Info: Figures/chap1/classicalCNN.JPG used on input line 7.
+Package pdftex.def Info: Figures/chap1/classicalCNN.JPG used on input line 8.
 (pdftex.def)             Requested size: 418.25368pt x 109.31311pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 2--12
 
  []
 
-<Figures/chap1/bio_vs_arti_neuron.png, id=171, 803.0pt x 249.93375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--12
+
+ []
+
+<Figures/chap1/bio_vs_arti_neuron.png, id=172, 803.0pt x 249.93375pt>
 File: Figures/chap1/bio_vs_arti_neuron.png Graphic file (type png)
 
 <use Figures/chap1/bio_vs_arti_neuron.png>
 Package pdftex.def Info: Figures/chap1/bio_vs_arti_neuron.png used on input lin
-e 15.
+e 17.
 (pdftex.def)             Requested size: 418.25368pt x 130.18367pt.
 
-<Figures/chap1/ActivFunctionsSimpleANN.png, id=173, 2409.0pt x 572.1375pt>
+<Figures/chap1/ActivFunctionsSimpleANN.png, id=174, 2409.0pt x 572.1375pt>
 File: Figures/chap1/ActivFunctionsSimpleANN.png Graphic file (type png)
 
 <use Figures/chap1/ActivFunctionsSimpleANN.png>
 Package pdftex.def Info: Figures/chap1/ActivFunctionsSimpleANN.png used on inpu
-t line 24.
+t line 26.
 (pdftex.def)             Requested size: 418.25368pt x 99.33112pt.
+ [1
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--34
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
 
  []
 
-[1
-
-
-] [2 <./Figures/chap1/classicalCNN.JPG> <./Figures/chap1/bio_vs_arti_neuron.png
- (PNG copy)> <./Figures/chap1/ActivFunctionsSimpleANN.png>]
-<Figures/fcn_1.png, id=198, 451.6875pt x 225.84375pt>
+[2 <./Figures/chap1/classicalCNN.JPG> <./Figures/chap1/bio_vs_arti_neuron.png (
+PNG copy)> <./Figures/chap1/ActivFunctionsSimpleANN.png>]
+<Figures/fcn_1.png, id=199, 451.6875pt x 225.84375pt>
 File: Figures/fcn_1.png Graphic file (type png)
  <use Figures/fcn_1.png>
-Package pdftex.def Info: Figures/fcn_1.png used on input line 37.
+Package pdftex.def Info: Figures/fcn_1.png used on input line 39.
 (pdftex.def)             Requested size: 418.25368pt x 209.13997pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--51
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--51
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--51
-
- []
-
-[3 <./Figures/fcn_1.png>]
-Overfull \hbox (1.08638pt too wide) in paragraph at lines 58--58
+Overfull \hbox (1.08638pt too wide) in paragraph at lines 60--60
  []|[]| 
  []
 
-<Figures/chap1/angie_original.png, id=212, 621.32124pt x 804.00375pt>
+<Figures/chap1/angie_original.png, id=207, 621.32124pt x 804.00375pt>
 File: Figures/chap1/angie_original.png Graphic file (type png)
 
 <use Figures/chap1/angie_original.png>
-Package pdftex.def Info: Figures/chap1/angie_original.png used on input line 59
+Package pdftex.def Info: Figures/chap1/angie_original.png used on input line 61
 .
 (pdftex.def)             Requested size: 83.64944pt x 108.24138pt.
 
-<Figures/chap1/EGGER_Segmentation_Nr_0.png, id=213, 621.32124pt x 804.00375pt>
+<Figures/chap1/EGGER_Segmentation_Nr_0.png, id=208, 621.32124pt x 804.00375pt>
 File: Figures/chap1/EGGER_Segmentation_Nr_0.png Graphic file (type png)
 
 <use Figures/chap1/EGGER_Segmentation_Nr_0.png>
 Package pdftex.def Info: Figures/chap1/EGGER_Segmentation_Nr_0.png used on inpu
-t line 60.
+t line 62.
 (pdftex.def)             Requested size: 83.64944pt x 108.24138pt.
 
-<Figures/chap1/EGGER_Segmentation_Nr_9.png, id=214, 621.32124pt x 804.00375pt>
+<Figures/chap1/EGGER_Segmentation_Nr_9.png, id=209, 621.32124pt x 804.00375pt>
 File: Figures/chap1/EGGER_Segmentation_Nr_9.png Graphic file (type png)
 
 <use Figures/chap1/EGGER_Segmentation_Nr_9.png>
 Package pdftex.def Info: Figures/chap1/EGGER_Segmentation_Nr_9.png used on inpu
-t line 61.
+t line 63.
 (pdftex.def)             Requested size: 83.64944pt x 108.24138pt.
 
-<Figures/chap1/EGGER_Segmentation_Nr_19.png, id=215, 621.32124pt x 804.00375pt>
+<Figures/chap1/EGGER_Segmentation_Nr_19.png, id=210, 621.32124pt x 804.00375pt>
 File: Figures/chap1/EGGER_Segmentation_Nr_19.png Graphic file (type png)
 <use Figures/chap1/EGGER_Segmentation_Nr_19.png>
 Package pdftex.def Info: Figures/chap1/EGGER_Segmentation_Nr_19.png used on inp
-ut line 62.
+ut line 64.
 (pdftex.def)             Requested size: 83.64944pt x 108.24138pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 46--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--70
+
+ []
+
+[3 <./Figures/fcn_1.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4]) (./Chapters/Chapter2.tex [5 <./Figures/chap1/angie_original.png> <./Figure
-s/chap1/EGGER_Segmentation_Nr_0.png (PNG copy)> <./Figures/chap1/EGGER_Segmenta
-tion_Nr_9.png (PNG copy)> <./Figures/chap1/EGGER_Segmentation_Nr_19.png (PNG co
-py)>]
+<Figures/chap1/EGGER's_method.png, id=218, 1347.0325pt x 398.48875pt>
+File: Figures/chap1/EGGER's_method.png Graphic file (type png)
+
+<use Figures/chap1/EGGER's_method.png>
+Package pdftex.def Info: Figures/chap1/EGGER's_method.png used on input line 73
+.
+(pdftex.def)             Requested size: 418.25368pt x 123.73088pt.
+ [4] [5 <./Figures/chap1/angie_original.png> <./Figures/chap1/EGGER_Segmentatio
+n_Nr_0.png (PNG copy)> <./Figures/chap1/EGGER_Segmentation_Nr_9.png (PNG copy)>
+ <./Figures/chap1/EGGER_Segmentation_Nr_19.png (PNG copy)> <./Figures/chap1/EGG
+ER's_method.png>])
+(./Chapters/Chapter2.tex [6]
 Underfull \hbox (badness 10000) in paragraph at lines 4--7
 
  []
 
-<Figures/myMatrix.jpg, id=234, 1680.2775pt x 840.13875pt>
+<Figures/myMatrix.jpg, id=251, 1680.2775pt x 840.13875pt>
 File: Figures/myMatrix.jpg Graphic file (type jpg)
 
 <use Figures/myMatrix.jpg>
@@ -1849,109 +1867,147 @@ Package pdftex.def Info: Figures/myMatrix.jpg used on input line 11.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6
+[7
 
-] [7 <./Figures/myMatrix.jpg>]
-<Figures/evaluation_angles.png, id=248, 1264.725pt x 632.3625pt>
+] <Figures/chap2/drew/drew_original.jpg, id=260, 250.9375pt x 250.9375pt>
+File: Figures/chap2/drew/drew_original.jpg Graphic file (type jpg)
+
+<use Figures/chap2/drew/drew_original.jpg>
+Package pdftex.def Info: Figures/chap2/drew/drew_original.jpg used on input lin
+e 23.
+(pdftex.def)             Requested size: 167.2989pt x 167.30783pt.
+
+<Figures/chap2/drew/drew_segments.png, id=261, 250.9375pt x 250.9375pt>
+File: Figures/chap2/drew/drew_segments.png Graphic file (type png)
+
+<use Figures/chap2/drew/drew_segments.png>
+Package pdftex.def Info: Figures/chap2/drew/drew_segments.png used on input lin
+e 24.
+(pdftex.def)             Requested size: 167.2989pt x 167.30783pt.
+
+<Figures/chap2/ali/ali_original.jpg, id=264, 250.9375pt x 250.9375pt>
+File: Figures/chap2/ali/ali_original.jpg Graphic file (type jpg)
+
+<use Figures/chap2/ali/ali_original.jpg>
+Package pdftex.def Info: Figures/chap2/ali/ali_original.jpg used on input line 
+27.
+(pdftex.def)             Requested size: 167.2989pt x 167.30783pt.
+
+<Figures/chap2/ali/ali_segments.png, id=265, 250.9375pt x 250.9375pt>
+File: Figures/chap2/ali/ali_segments.png Graphic file (type png)
+
+<use Figures/chap2/ali/ali_segments.png>
+Package pdftex.def Info: Figures/chap2/ali/ali_segments.png used on input line 
+28.
+(pdftex.def)             Requested size: 167.2989pt x 167.30783pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--32
+
+ []
+
+[8 <./Figures/myMatrix.jpg>] [9 <./Figures/chap2/drew/drew_original.jpg> <./Fig
+ures/chap2/drew/drew_segments.png (PNG copy)> <./Figures/chap2/ali/ali_original
+.jpg> <./Figures/chap2/ali/ali_segments.png (PNG copy)>]
+<Figures/evaluation_angles.png, id=288, 1264.725pt x 632.3625pt>
 File: Figures/evaluation_angles.png Graphic file (type png)
 
 <use Figures/evaluation_angles.png>
-Package pdftex.def Info: Figures/evaluation_angles.png used on input line 43.
+Package pdftex.def Info: Figures/evaluation_angles.png used on input line 56.
 (pdftex.def)             Requested size: 418.25368pt x 209.12413pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
-<Figures/-40_0_0_occVal_20.png, id=252, 227.85126pt x 227.85126pt>
+<Figures/-40_0_0_occVal_20.png, id=292, 227.85126pt x 227.85126pt>
 File: Figures/-40_0_0_occVal_20.png Graphic file (type png)
 
 <use Figures/-40_0_0_occVal_20.png>
-Package pdftex.def Info: Figures/-40_0_0_occVal_20.png used on input line 58.
+Package pdftex.def Info: Figures/-40_0_0_occVal_20.png used on input line 71.
 (pdftex.def)             Requested size: 41.82791pt x 41.825pt.
 
-<Figures/0_0_-40_occVal_20.png, id=253, 227.85126pt x 227.85126pt>
+<Figures/0_0_-40_occVal_20.png, id=293, 227.85126pt x 227.85126pt>
 File: Figures/0_0_-40_occVal_20.png Graphic file (type png)
 
 <use Figures/0_0_-40_occVal_20.png>
-Package pdftex.def Info: Figures/0_0_-40_occVal_20.png used on input line 59.
+Package pdftex.def Info: Figures/0_0_-40_occVal_20.png used on input line 72.
 (pdftex.def)             Requested size: 41.82791pt x 41.825pt.
 
-<Figures/0_-40_0_occVal_20.png, id=254, 227.85126pt x 227.85126pt>
+<Figures/0_-40_0_occVal_20.png, id=294, 227.85126pt x 227.85126pt>
 File: Figures/0_-40_0_occVal_20.png Graphic file (type png)
 
 <use Figures/0_-40_0_occVal_20.png>
-Package pdftex.def Info: Figures/0_-40_0_occVal_20.png used on input line 60.
+Package pdftex.def Info: Figures/0_-40_0_occVal_20.png used on input line 73.
 (pdftex.def)             Requested size: 41.82791pt x 41.825pt.
 
-<Figures/40_0_0_occVal_20.png, id=255, 227.85126pt x 227.85126pt>
+<Figures/40_0_0_occVal_20.png, id=295, 227.85126pt x 227.85126pt>
 File: Figures/40_0_0_occVal_20.png Graphic file (type png)
 
 <use Figures/40_0_0_occVal_20.png>
-Package pdftex.def Info: Figures/40_0_0_occVal_20.png used on input line 61.
+Package pdftex.def Info: Figures/40_0_0_occVal_20.png used on input line 74.
 (pdftex.def)             Requested size: 41.82791pt x 41.825pt.
 
-<Figures/0_0_40_occVal_20.png, id=256, 227.85126pt x 227.85126pt>
+<Figures/0_0_40_occVal_20.png, id=296, 227.85126pt x 227.85126pt>
 File: Figures/0_0_40_occVal_20.png Graphic file (type png)
 
 <use Figures/0_0_40_occVal_20.png>
-Package pdftex.def Info: Figures/0_0_40_occVal_20.png used on input line 62.
+Package pdftex.def Info: Figures/0_0_40_occVal_20.png used on input line 75.
 (pdftex.def)             Requested size: 41.82791pt x 41.825pt.
 
-<Figures/0_40_0_occVal_20.png, id=257, 227.85126pt x 227.85126pt>
+<Figures/0_40_0_occVal_20.png, id=297, 227.85126pt x 227.85126pt>
 File: Figures/0_40_0_occVal_20.png Graphic file (type png)
 
 <use Figures/0_40_0_occVal_20.png>
-Package pdftex.def Info: Figures/0_40_0_occVal_20.png used on input line 63.
+Package pdftex.def Info: Figures/0_40_0_occVal_20.png used on input line 76.
 (pdftex.def)             Requested size: 41.82791pt x 41.825pt.
- [8 <./Figures/evaluation_angles.png>]
-<Figures/occVal_angles.png, id=268, 1137.4997pt x 301.8778pt>
+ [10 <./Figures/evaluation_angles.png>]
+<Figures/occVal_angles.png, id=306, 1137.4997pt x 301.8778pt>
 File: Figures/occVal_angles.png Graphic file (type png)
 
 <use Figures/occVal_angles.png>
-Package pdftex.def Info: Figures/occVal_angles.png used on input line 73.
+Package pdftex.def Info: Figures/occVal_angles.png used on input line 86.
 (pdftex.def)             Requested size: 418.25368pt x 110.99748pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
-<Figures/occVal_angles_90.png, id=269, 1137.4997pt x 301.8778pt>
+<Figures/occVal_angles_90.png, id=307, 1137.4997pt x 301.8778pt>
 File: Figures/occVal_angles_90.png Graphic file (type png)
 
 <use Figures/occVal_angles_90.png>
-Package pdftex.def Info: Figures/occVal_angles_90.png used on input line 81.
+Package pdftex.def Info: Figures/occVal_angles_90.png used on input line 94.
 (pdftex.def)             Requested size: 418.25368pt x 110.99748pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./Chapters/Chapter3.tex [9 <./Figures/-40_0_0_occVal_20.png (PNG copy)> <./F
-igures/0_0_-40_occVal_20.png (PNG copy)> <./Figures/0_-40_0_occVal_20.png (PNG 
-copy)> <./Figures/40_0_0_occVal_20.png (PNG copy)> <./Figures/0_0_40_occVal_20.
-png (PNG copy)> <./Figures/0_40_0_occVal_20.png (PNG copy)> <./Figures/occVal_a
-ngles.png>] [10 <./Figures/occVal_angles_90.png>]
+) (./Chapters/Chapter3.tex [11 <./Figures/-40_0_0_occVal_20.png (PNG copy)> <./
+Figures/0_0_-40_occVal_20.png (PNG copy)> <./Figures/0_-40_0_occVal_20.png (PNG
+ copy)> <./Figures/40_0_0_occVal_20.png (PNG copy)> <./Figures/0_0_40_occVal_20
+.png (PNG copy)> <./Figures/0_40_0_occVal_20.png (PNG copy)> <./Figures/occVal_
+angles.png>] [12 <./Figures/occVal_angles_90.png>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 7.
 
-) (./Chapters/Chapter4.tex [11
+) (./Chapters/Chapter4.tex [13
 
-]) (./Chapters/Chapter5.tex [12
-
-]) [13
-
-]
-(./Thesis.bbl) (./Back/AppendixA.tex [14
-
+]) (./Chapters/Chapter5.tex [14
 
 ]) [15
+
+]
+(./Thesis.bbl) (./Back/AppendixA.tex [16
+
+
+]) [17
 
 ]
 (./Back/DeclarationOfAuthorship.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 7.
-) [16
+) [18
 
 
 ]
@@ -1964,7 +2020,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: DC064125F0876A64A8A5090BEDF7E549;3724.
+(rerunfilecheck)             Checksum: 39546762021C50628B6FC6F482EB4029;3724.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1972,13 +2028,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
  ) 
 Here is how much of TeX's memory you used:
- 28235 strings out of 494328
- 480341 string characters out of 6162815
- 678124 words of memory out of 5000000
- 31014 multiletter control sequences out of 15000+600000
+ 28293 strings out of 494328
+ 481678 string characters out of 6162815
+ 680124 words of memory out of 5000000
+ 31055 multiletter control sequences out of 15000+600000
  29206 words of font info for 73 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
- 76i,16n,58p,1087b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,17n,58p,1297b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/arneli00/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk>{/usr/
 share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/f
@@ -1991,10 +2047,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Thesis.pdf (21 pages, 5220152 bytes).
+Output written on Thesis.pdf (23 pages, 5394072 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
- 300 compressed objects within 3 object streams
- 68 named destinations out of 1000 (max. 500000)
- 292 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 414 PDF objects out of 1000 (max. 8388607)
+ 329 compressed objects within 4 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

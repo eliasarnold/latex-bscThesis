@@ -1,14 +1,16 @@
 \chapter{Introduction}
 Fitting is the process of generating a 3D model of a face from a 2D image. There are different approaches on how to do that. The gravis group of the University of Basel has developed an MCMC (Markov Chain Monte Carlo) algorithm that makes random changes to a 3DMM (3D Morphable Model) and accepts the proposal face whenever the new 3D face has a greater probability than the previous one. For this Thesis, we use the popular Basel Face Model 2017 \cite{BFM2017}. That the algorithm can determine the likelihood of a 3D facial proposal relative to a given 2D face, the algoritm's evaluator needs to now, which pixels to include in the probability calculation. Therefore we have to label each pixel if it's part of the face which should be regarded by the evaluator, or if it's background and hsn't any importance for the construction of the 3D Model. Nirkin et al \cite{nirkin2018_faceswap} claim, that this is possible with a standart fully convolutional network.\\ 
 \\
-The idea of Artificial Neural Networks was heavily influenced by biology. They consist of a variety of neurons which are grouped in layers. The way each neuron works is very simple. It takes multiple inputs of varying strength from other neurons, sums them up and decides depending on the sum whether it should send a stimulus itself and if so, in which strength. Each layer is somehow connected to the next layer. Some layers are fully connected (each neuron of a layer is connected to every other neuron in the next layer) while others are convolutional. Convolutional means that a neuron only gets input of its neighbors in a previous layer. There are many different architectures which mainly differ in the number of layers, number of neurons per layer and the interconnectivity of the neurons. A classical Convolutional Neural Network (CNN) has the following structure:
+The idea of Artificial Neural Networks was heavily influenced by biology. They consist of a variety of neurons which are grouped in layers. The way each neuron works is very simple. It takes multiple inputs of varying strength from other neurons, sums them up and decides depending on the sum whether it should send a stimulus itself and if so, in which strength. Each layer is somehow connected to the next layer. Some layers are fully connected (each neuron of a layer is connected to every other neuron in the next layer) while others are convolutional. Convolutional means that a neuron only gets input of its neighbors in a previous layer. There are many different architectures which mainly differ in the number of layers, number of neurons per layer and the interconnectivity of the neurons. A classical Convolutional Neural Network (CNN) is depicted in \ref{fig:test1}.\\
+\\
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Figures/chap1/classicalCNN.JPG}
 	\caption{In the lower-left corner, you see the 16 layers of the VGG16-FCN. Each Max-Pooling layer cuts the input image size in half. In the top-right, you can see the meaning of the '8s' term of the FCN-Name. It means that the resulting image has to be 8x upsampled, to get an image which is in size equal to the input image (which means we have four pooling-layers)}
 	\label{fig:test1}
-\end{figure}\\
-In 1943 Warren McCulloch and Walter Pitts \cite{mcculloch} showed that even simple networks of this kind can simulate every possible logic-gate. For this they used a neuron model that consisted of simple logic gates and could process only binary input and output signals.
+\end{figure}
+
+Already in 1943 Warren McCulloch and Walter Pitts \cite{mcculloch} showed that even simple networks of this kind can simulate every possible logical formula. For this they used a neuron model that consisted of simple logic gates and could process only binary input and output signals.
 
 \begin{figure}
 	\centering
@@ -45,10 +47,10 @@ For our experiments we used a pretrained Fully Convolutional Network (FCN) of \c
 \\
 They used a semi-supervised approach to produce training data in order to train the FCN. To produce large quantities of them, they used 2'043 face videos of the IARPA Janus CS2 dataset. To avoid searching for the face in every frame of the video they used motion queues which tracked the face based on an initial segmentation based on \cite{grundmann} which enriched their trainingset to 9'818 images. To enlarge the collection of images, they rendered 3D Shapes of of various objects (e.g. sunglasses, hands) into existing images. Each occlusion added 9'500 images to their trainingset.\\
 \\
-The gravis group of the University of Basel developped "Occlusion Aware 3D Morphable Models" \cite{egger_paper}. These Methods use an iterative approach to generate the z-labels, namely to label each pixel wether it belogs to the face or is background. This approach can handle multiple labels and differentiate between multiple occlusion types. For example face specific ones (eg. beards, sunglasses) and background. For updating the z-labels they use an EM-like algorithm which classifies a pixel based on the probabilities for each possible label.  But for our experiments we limited ourselves to two. We only need to distinguish face (including skin and beard) and background.\\ 
+The gravis group of the University of Basel developped "Occlusion Aware 3D Morphable Models" \cite{egger_paper}. These Methods use an iterative approach to generate the z-labels, namely to label each pixel wether it belogs to the face or is background. This approach can handle multiple labels and differentiate between multiple occlusion types. For example face specific ones (eg. beards, sunglasses) and background. For updating the z-labels they use an algorithm which classifies a pixel based on the probabilities for each possible label.  But for our experiments we limited ourselves to two. We only need to distinguish face (including skin and beard) and background.\\ 
 \\
-They used an EM-algorithm like method to solve two problems simultaneusly. In the E-steps they updated the z-labels and in the M-steps they updated the face parameters. Conventional approaches often fail on important parts of the face such as the eyes, eyebrows or the oral region because oftheyr strong variability in color and shape. The segmentation of \cite{egger_paper} also has difficulties with these aspects as Figure \ref{fig:iterations} shows.
-
+The algorithm to update the z-labels as mentioned before is an EM-algorithm like method to solve two problems simultaneusly. In the E-steps they updated the z-labels and in the M-steps they updated the face parameters. Conventional approaches often fail on important parts of the face such as the eyes, eyebrows or the oral region because oftheyr strong variability in color and shape. The segmentation of \cite{egger_paper} also has difficulties with these aspects as Figure \ref{fig:iterations} shows. The algorithm starts with an initial guess and then altenating updates the Parameters $\Theta$ and the z-labels. From the updated Parameter Set (M-Step) the algorithm updates the z-labels (E-Step) and vice versa (see Figure \ref{fig:EGGER's_method}).\\
+\\
 % The source for this table was this post: https://stackoverflow.com/questions/2771856/centering-text-horizontally-and-vertically-in-latex
 % To add padding for the cell contents: https://tex.stackexchange.com/questions/31672/column-and-row-padding-in-tables
 \begin{figure}[h]
@@ -66,6 +68,15 @@ They used an EM-algorithm like method to solve two problems simultaneusly. In th
 	\label{fig:iterations}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{Figures/chap1/EGGER's_method.png}
+	\caption[caption without footnote, for lof]{\footnotemark Algorithm overview: As input, we need a target image and fiducial points. We use the external Clandmark Library for automated fiducial point detection from still images (U\v ri\v c\' a\v r et al (2015) \cite{Uricar}). We start with an initial face model fit of our average face with a pose estimation. Then we perform a RANSAC-like robust illumination estimation for initialization of the segmentation label z and the illumination setting (for more details see Figure 9). Then our face model and the segmentation are simultaneously adapted to the target image I. The result is a set of face model parameters $\Theta$ and a segmentation into face and non-face regions. The presented target image is from the LFW face database (Huang et al. (2007))}
+	\label{fig:EGGER's_method}
+\end{figure}
+
+\footnotetext{Figure \ref{fig:EGGER's_method} and it's description are one to one coped from Fig.4 of the following paper \cite{egger_paper}}
+
 An approach using convolutional neural networks to segment occluded faces has already been described by \cite{SaitoEtAl}. The big difference to our approach is that multiple frames are needed for the final segmentation. An other approach of \cite{MorelForster} integrate occlusion into the fitting process to model an uncertainty. They use random forests to detect facial-occlusions by hair.
 
 \begin{itemize}
@@ -82,7 +93,6 @@ Because \cite{nirkin2018_faceswap} trained the FCN on a very large and diverse d
 		\item We expect the FCN to perform well of occlusions used for training, e.g. hands, microphones
 		\item An FCN is known to be very fast, so we expect to speed up the fitting.
 	\end{itemize}
-
 
 
 

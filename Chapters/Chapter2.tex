@@ -16,7 +16,20 @@ Since on the COFW dataset, only landmarks and bounding-boxes are given, the segm
 \newpage
 
 \subsection{Parts-LFW}
-In the Parts-LFW Database, we had a ground-truth mask for every image. Unfortunately, the FCN of Nirkin[1] segmented facial hair and on the masks, facial hair was excluded. So we had to manually remove these images. To reduce the effort, we took the Parts-LFT Validation set containing 500 images. After removing the ones with a beard or mustache, we were left with 447 images. The results are summarized in the following table:\\
+In the Parts-LFW dataset, we had a ground-truth mask for every image. The make distinguishes between hair, skin and background. We iterated trough all the provided groud-truth masks and overlaid them with the segmentation of the FCN. The evaluation is quite impressive. The FCN performs very good in segmenting only pixels which belong to the face. In average over the 500 images of the Parts LFW dataset, there are $98.5\%$ right non-segmentations. On the other hand, only $85.4\%$ of all the pixels which belong to the face are segmented as face pixels.Figure (\todo) depicts such a mask. Unfortunately, on the given mask, no distinction is made between face and other parts of the body, but everything is segmented as skin (Subfigures \ref{fig:drew:sf1} and \ref{fig:drew:sf2}). However, the bigger problem is that some faces have beards. The FCN of Nirkin[1] segmented facial hair which was excluded on the provided labels. So we had to manually remove these images (Subfigures \ref{fig:ali:sf3} and \ref{fig:ali:sf4}). To reduce the effort, we took the Parts-LFT Validation set containing 500 images. After removing the ones with a beard or mustache, we were left with 447 images. The results are summarized in the following table\\
+\\
+\begin{figure}
+	\centering
+	\subbottom[An facial-image with the segmentation of the FCN highlited in red]{\includegraphics[width=0.4\textwidth]{Figures/chap2/drew/drew_original.jpg}\label{fig:drew:sf1}}
+	\subbottom[The provided ground-truth segmentation of the image \ref{fig:drew:sf1} overlaid with the mask of the FCN (red)]{\includegraphics[width=0.4\textwidth]{Figures/chap2/drew/drew_segments.png}\label{fig:drew:sf2}}
+	
+	
+	\subbottom[An facial-image with the segmentation of the FCN highlited in red]{\includegraphics[width=0.4\textwidth]{Figures/chap2/ali/ali_original.jpg}\label{fig:ali:sf3}}
+	\subbottom[The provided ground-truth segmentation of the image \ref{fig:ali:sf3} overlaid with the mask of the FCN (red)]{\includegraphics[width=0.4\textwidth]{Figures/chap2/ali/ali_segments.png}\label{fig:ali:sf4}}
+	\caption{Plots of four Turing machines}
+	\label{fig:tm}
+\end{figure}
+
 %\vspace{.5cm}\\
 \begin{figure}
 \begin{center}
