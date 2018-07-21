@@ -62,8 +62,21 @@ Morel-Forster, A.
   processes and MCMC sampling\/}.
 \newblock Ph.D. thesis, University of Basel, Faculty of Science (2016).
 
+\bibitem{LFW_dataset}
+Kae, A., Sohn, K., Lee, H., and Learned-Miller, E.
+\newblock Augmenting {CRF}s with {B}oltzmann Machine Shape Priors for Image
+  Labeling (2013).
+
 \bibitem{parametric}
 B.~Egger, A. M.-F. A.~S., A.~Kortylewski.
 \newblock parametric-face-image-generator (2017).
+
+\bibitem{BlanzVetter}
+Blanz, V. and Vetter, T.
+\newblock A Morphable Model for the Synthesis of 3D Faces.
+\newblock In {\em Proceedings of the 26th Annual Conference on Computer
+  Graphics and Interactive Techniques\/}, SIGGRAPH '99, pages 187--194. ACM
+  Press/Addison-Wesley Publishing Co., New York, NY, USA (1999).
+\newblock \urlprefix\url{http://dx.doi.org/10.1145/311535.311556}.
 
 \end{thebibliography}

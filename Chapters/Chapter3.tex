@@ -1,4 +1,6 @@
-\chapter{Comparison with other approaches}
+\chapter{evaluation of the fitting with the mask of the FCN}
+The EM-algorithm like method of \cite{egger_paper} uses a binary mask to determine the pixels which are relevant for the fitting-process and which are not. We changed the EM-like method of Egger et al. to not estimate a mask at all, but use the same initial mask in each iteration. To generate a 3D model of the face, parameters for a 3DMM are estimated. This is the popular Basel Face Model of 2017 \cite{BFM2017} which was originally proposed in 1999 by Blanz and Vetter \cite{BlanzVetter}. The Parametric-Face-Image-Generator \cite{parametric} outputs the ground truth parameters of the face. We now render different faces with various occlusions and measure the error (RMSE = Root Mean Squared Error) of the parameters. (zuerst mit Punktlichtquelle,  dann mit random \todo)
+
 	\begin{itemize}
 		\item setup
 		\item compare the Fitting Results depending on the mask used

@@ -12,7 +12,7 @@ The idea of Artificial Neural Networks was heavily influenced by biology. They c
 
 Already in 1943 Warren McCulloch and Walter Pitts \cite{mcculloch} showed that even simple networks of this kind can simulate every possible logical formula. For this they used a neuron model that consisted of simple logic gates and could process only binary input and output signals.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{Figures/chap1/bio_vs_arti_neuron.png}
 	\caption[Caption for LOF]{The left-hand side of the image \footnotemark shows a Biological Neuron. It is a nerve cell that occurs in almost every animal. On the right-hand side is On the right is an artificial neuron. It sums up the stimuli of the previous neurons, applies an activation function to this sum and forwards the output of this function itself}
@@ -21,12 +21,81 @@ Already in 1943 Warren McCulloch and Walter Pitts \cite{mcculloch} showed that e
 
 \footnotetext{Source: Google.com}
 
-\begin{figure}
+\section{Adjustment of the edgeweights}
+The algorithm for this is called \textit{backpropagation}. To train a network, the desired output must be known. Depending on the difference between the actual output and the desired output, the new weight of each edge is determined by derivation. For details see \ref{subs:Example}
+
+\lipsum[1]
+
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=\linewidth]{Figures/chap1/ActivFunctionsSimpleANN.png}
-	\caption{\todo}
-	\label{fig:test1}
+	\includegraphics[width=1\linewidth]{Figures/chap1/backpropagation_example.JPG}
+	\caption{A simple neural network consisting of three layers. Neurons $\pi_1$ and $\pi_2$ are in the input layer. $\pi_3$ and $\pi_4$ make up the only hidden layer and $\pi_5$ is in the output layer. Each neuron sums up the input signals ($net\pi_i$), applies an activation function to it ($\sigma$) and forwards the output of this function as its own signal ($out\pi_i$). Mostly a sigmoid function is choosen as the activation function (right lower corner). The edgeweights are annotated with $\omega_i$.}
+	\label{fig:backpropagation}
 \end{figure}
+
+\subsection{A simple claculation example (on Figure \ref{fig:backpropagation})}
+\label{subs:Example}
+
+For this example, we assume that the neuron (and the edge connected to it) labeled with $\omega_1$ is in the input layer and the $\omega_3$ neuron is in the output layer. The layer where $\omega_2$ is in, is called \textit{hidden layer}. For this example, the inputs and edgeweights are as follows:
+\begin{itemize}
+	\item $Input_1$: 1
+	\item $Input_2$: 0
+	\item $\omega_i=\frac{i}{10}\forall i \in \{1,...,6\}$
+\end{itemize}
+First, let's calculate the output ($out\pi_5$) of the network:
+
+\noindent\begin{minipage}{.5\linewidth}
+	\begin{align*} 
+		out\pi_1 &= \frac{1}{1+e^{-1}} = 0.731 \\ 
+		out\pi_2 &= \frac{1}{1+e^{-0}} = 0.5 \\
+		net\pi_3 &= 0.1*0.731+0.3*0.5 = 0.223 \\
+		net\pi_4 &= 0.4*0.5+0.2*0.731 = 0.346
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{align*} 
+		out\pi_3 &= \frac{1}{1+e^{-0.223}} = 0.556 \\ 
+		out\pi_4 &= \frac{1}{1+e^{-0.346}} = 0.586 \\
+		net\pi_5 &= 0.5*0.556+0.6*0.586 = 0.630 \\
+		out\pi_5 &= \frac{1}{1+e^{-0.630}} = 0.652
+	\end{align*}
+\end{minipage}\\
+\\
+\\
+The output of the network is $0.652$, but we want it to be $0.1$. Since $\sigma^{-1}(0.1)=-ln(9)$ we expect both $\omega_5$ and $\omega_6$ to get smaller. For the backpropagation we need an error-function. We choose the MSE (mean squared error). So $MSE=(0.652-0.1)^2 = 0.305$. We start the backpropagation calculation with applaying the chain rule to the derivative of the error with respect to the edgeweight which has to be updated:
+\begin{equation*}
+	\omega_i^* = \omega_i+\Delta \omega_i=\omega_i+\frac{\partial MSE}{\partial \omega_i}=\omega_i+\underbrace{\frac{\partial MSE}{\partial out\pi_5}*\frac{\partial out\pi_5}{\partial net\pi_5}}_{\delta_{\pi_5}}*\frac{\partial net\pi_5}{\partial \omega_i} \text{ for }i \in \{5,6\}
+\end{equation*}
+\begin{itemize}
+	\item $\delta_{\pi_5}=\frac{\partial MSE}{\partial out\pi_5}*\frac{\partial out\pi_5}{\partial net\pi_5}=2*(0.652-0.1)*-1*0.652*(1-0.652)=-0.2505$
+	\item $\omega_5^*=\omega_5+\delta_{\pi_5}*\frac{\partial net\pi_5}{\partial \omega_5}=\omega_5+\delta_{\pi_5}*out\pi_3=0.361$
+	\item $\omega_6^*=\omega_6+\delta_{\pi_5}*\frac{\partial net\pi_5}{\partial \omega_6}=\omega_6+\delta_{\pi_5}*out\pi_4=0.453$
+\end{itemize}
+Now we move on with the $\Delta\omega_i$'s for the \textit{hidden layer}:
+\begin{equation*}
+	\frac{\partial E}{\partial \omega_i}=\underbrace{\underbrace{\frac{\partial MSE}{\partial out\pi_5}*\frac{\partial out\pi_5}{\partial net\pi_5}}_{\delta\pi_5}*\underbrace{\frac{\partial net\pi_5}{\partial out\pi_3}}_{\omega_5}*\frac{\partial out\pi_3}{\partial net\pi_3}}_{\delta_{\pi_3}}*\frac{\partial net\pi_3}{\partial \omega_i}\text{ for }i\in\{1,3\}
+\end{equation*}
+\begin{equation*}
+	\frac{\partial E}{\partial \omega_i}=\underbrace{\underbrace{\frac{\partial MSE}{\partial out\pi_5}*\frac{\partial out\pi_5}{\partial net\pi_5}}_{\delta\pi_5}*\underbrace{\frac{\partial net\pi_5}{\partial out\pi_4}}_{\omega_6}*\frac{\partial out\pi_4}{\partial net\pi_4}}_{\delta_{\pi_4}}*\frac{\partial net\pi_4}{\partial \omega_i}\text{ for }i\in\{2,4\}
+\end{equation*}
+
+\noindent\begin{minipage}{.5\linewidth}
+	\begin{align*} 
+		\delta_{\pi_3} &= \delta_{\pi_5}*\omega_5^*out\pi_3*(1-out\pi_3)=-0.022\\ 
+		\omega_1^* &= \omega_1+\delta_{\pi_3}*out\pi_1=0.084 \\
+		\omega_3^* &= \omega_3+\delta_{\pi_3}*out\pi_2=0.289
+	\end{align*}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{align*} 
+		\delta_{\pi_4} &= \delta_{\pi_5}*\omega_6^*out\pi_4*(1-out\pi_4)=-0.028\\ 
+		\omega_2^* &= \omega_2+\delta_{\pi_4}*out\pi_1=0.180 \\
+		\omega_4^* &= \omega_4+\delta_{\pi_4}*out\pi_2=0.386
+	\end{align*}
+\end{minipage}\\
+\\
+If we now evaluate the network, we get a $out\pi_5$ of $0.613$. This is a very small change in absolute values because we have made only one iteration of the backpropagation algorithm. However the MSE improves from $0.305$ to $0.263$!
 
 \section{The network used}
 \label{sec:theFCN}
@@ -38,7 +107,6 @@ The assembly of our network used for this thesis follows the FCN-8s-VGG architec
 	\centering
 	\includegraphics[width=1\linewidth]{Figures/fcn_1.png}
 	\caption{In the lower-left corner, you see the 16 layers of the VGG16-FCN. Each Max-Pooling layer cuts the input image size in half. In the top-right, you can see the meaning of the '8s' term of the FCN-Name. It means that the resulting image has to be 8x upsampled, to get an image which is in size equal to the input image (which means we have four pooling-layers)}
-	\label{fig:test1}
 \end{figure}
 
 
@@ -49,8 +117,10 @@ They used a semi-supervised approach to produce training data in order to train 
 \\
 The gravis group of the University of Basel developped "Occlusion Aware 3D Morphable Models" \cite{egger_paper}. These Methods use an iterative approach to generate the z-labels, namely to label each pixel wether it belogs to the face or is background. This approach can handle multiple labels and differentiate between multiple occlusion types. For example face specific ones (eg. beards, sunglasses) and background. For updating the z-labels they use an algorithm which classifies a pixel based on the probabilities for each possible label.  But for our experiments we limited ourselves to two. We only need to distinguish face (including skin and beard) and background.\\ 
 \\
-The algorithm to update the z-labels as mentioned before is an EM-algorithm like method to solve two problems simultaneusly. In the E-steps they updated the z-labels and in the M-steps they updated the face parameters. Conventional approaches often fail on important parts of the face such as the eyes, eyebrows or the oral region because oftheyr strong variability in color and shape. The segmentation of \cite{egger_paper} also has difficulties with these aspects as Figure \ref{fig:iterations} shows. The algorithm starts with an initial guess and then altenating updates the Parameters $\Theta$ and the z-labels. From the updated Parameter Set (M-Step) the algorithm updates the z-labels (E-Step) and vice versa (see Figure \ref{fig:EGGER's_method}).\\
+The algorithm does two things at the same time. In addition to creating a face mask, it estimates a 3D reconstruction of the depicted face. It's an EM-algorithm like method to solve two problems simultaneusly. In the E-steps they updated the z-labels and in the M-steps they updated the face parameters. Conventional approaches often fail on important parts of the face such as the eyes, eyebrows or the oral region because oftheyr strong variability in color and shape. The segmentation of \cite{egger_paper} also has difficulties with these aspects as Figure \ref{fig:iterations} shows. The algorithm starts with an initial guess and then altenating updates the Parameters $\Theta$ and the z-labels. From the updated Parameter Set (M-Step) the algorithm updates the z-labels (E-Step) and vice versa (see Figure \ref{fig:EGGER's_method}).\\
 \\
+% Soll ich auch die 'stable illumination estimation' in ein chapter machen? Wenn ja, was ist das 'consensus set' ?
+
 % The source for this table was this post: https://stackoverflow.com/questions/2771856/centering-text-horizontally-and-vertically-in-latex
 % To add padding for the cell contents: https://tex.stackexchange.com/questions/31672/column-and-row-padding-in-tables
 \begin{figure}[h]
@@ -79,21 +149,8 @@ The algorithm to update the z-labels as mentioned before is an EM-algorithm like
 
 An approach using convolutional neural networks to segment occluded faces has already been described by \cite{SaitoEtAl}. The big difference to our approach is that multiple frames are needed for the final segmentation. An other approach of \cite{MorelForster} integrate occlusion into the fitting process to model an uncertainty. They use random forests to detect facial-occlusions by hair.
 
-\begin{itemize}
-	\item Work of Nirkin et al. (Their results)
-	\item Summarize Paper: "Occlusion-aware 3D Morphable Models and..."
-	\item Work of Saito et al.
-	\ Work of Morel-Forster (2017)
-\end{itemize}
-
 \section{Expectations of the FCN}
-Because \cite{nirkin2018_faceswap} trained the FCN on a very large and diverse dataset, we expect the network to perform well in the task of segmenting a face. They claim that a standart segmentation network is sufficient to segment as well as a network especially tailored for this task and outperforms state of the art methods for face segmentation. We create multiple synthetic faces and render various occlusions over them. We expect the FCN to do well on usual facial-occlusions (eg. hands, microphones).
-
-	\begin{itemize}
-		\item We expect the FCN to perform well of occlusions used for training, e.g. hands, microphones
-		\item An FCN is known to be very fast, so we expect to speed up the fitting.
-	\end{itemize}
-
-
-
-
+Because \cite{nirkin2018_faceswap} trained the FCN on a very large and diverse dataset, we expect the network to perform well in the task of segmenting a face. They claim that a standart segmentation network is sufficient to segment as well as a network especially tailored for this task and outperforms state of the art methods for face segmentation. We create multiple synthetic faces and render various occlusions over them. We expect the FCN to do well on usual facial-occlusions (eg. hands, microphones) and especially on very thin occlusions, as this is a weak point of Egger's algorithm \cite{egger_paper}.\\
+\\
+\\
+As mentionned before, the approach of Egger et al. is iterative. Due to the high resolution of the Basel Face Model and the use of a software renderer they need up to 25 minutes per image. The performance of the code was less important to them.  According to Egger et al. the runtime for the segmentation is about 2 minutes. Nirkin et al. claim that the FCN they trained surpasses previous results in both accuracy and speed. Our measurements showed an average speed of 3.2 seconds per image, including the initialisation of the FCN (on an Intel Xeon E7 v3/Xeon E5 v3/Core i7 DMI2 (rev 02)). So we expect the segmentations of the FCN to be qualitatively nearly as good as the segmentations of Egger et al. but to be much faster.
