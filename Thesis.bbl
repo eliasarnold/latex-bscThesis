@@ -62,6 +62,11 @@ Morel-Forster, A.
   processes and MCMC sampling\/}.
 \newblock Ph.D. thesis, University of Basel, Faculty of Science (2016).
 
+\bibitem{cofw}
+X.~P. Burgos-Artizzu, P.~P. and Dollár, P.
+\newblock Robust face landmark estimation under occlusion.
+\newblock CCV 2013, Sydney, Australia (2013).
+
 \bibitem{LFW_dataset}
 Kae, A., Sohn, K., Lee, H., and Learned-Miller, E.
 \newblock Augmenting {CRF}s with {B}oltzmann Machine Shape Priors for Image

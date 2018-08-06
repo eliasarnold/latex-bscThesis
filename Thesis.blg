@@ -23,45 +23,45 @@ while executing---line 1233 of file thesis.bst
 Warning--empty booktitle in LFW_dataset
 Too many commas in name 1 of "B. Egger, A. Kortylewski, A. Morel-Forster, A. Schneider" for entry parametric
 while executing---line 1233 of file thesis.bst
-You've used 13 entries,
+You've used 14 entries,
             2256 wiz_defined-function locations,
-            580 strings with 6632 characters,
-and the built_in function-call counts, 4308 in all, are:
-= -- 294
-> -- 133
+            584 strings with 6756 characters,
+and the built_in function-call counts, 4535 in all, are:
+= -- 310
+> -- 141
 < -- 4
-+ -- 50
-- -- 37
-* -- 200
-:= -- 520
-add.period$ -- 40
-call.type$ -- 13
++ -- 53
+- -- 39
+* -- 207
+:= -- 548
+add.period$ -- 43
+call.type$ -- 14
 change.case$ -- 12
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 455
-empty$ -- 439
-format.name$ -- 46
-if$ -- 971
+cite$ -- 16
+duplicate$ -- 476
+empty$ -- 465
+format.name$ -- 49
+if$ -- 1023
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 108
-newline$ -- 71
-num.names$ -- 13
-pop$ -- 201
+int.to.str$ -- 14
+missing$ -- 113
+newline$ -- 76
+num.names$ -- 14
+pop$ -- 214
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 120
+skip$ -- 125
 stack$ -- 0
 substring$ -- 87
-swap$ -- 280
+swap$ -- 294
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 20
-width$ -- 15
-write$ -- 144
+while$ -- 21
+width$ -- 16
+write$ -- 154
 (There were 8 error messages)
