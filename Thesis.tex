@@ -14,6 +14,8 @@
 \usepackage{placeins}
 \usepackage{pdfpages}
 \usepackage{pgfplots}
+\usepackage{float} % to use the \begin{figure}[H] option
+\usepackage{enumitem} % To set custom spacing between list items. For more Information see: https://tex.stackexchange.com/questions/119919/no-spacing-between-enumerated-items-with-usepackageenumerate
 \pgfplotsset{width=9cm,compat=1.9}
 \cellspacetoplimit 4pt
 \cellspacebottomlimit 4pt
@@ -22,12 +24,12 @@
 
 %% ----------------------------------------------------------------
 
-\title				{An Empirical Comparison of Deep Learning and 3DMM-based Approaches for Facial Occlusion Segmentation}
+\title				{An Empirical Comparison of Deep Learning and 3DMM-Based Approaches for Facial Occlusion Segmentation}
 \thesistype			{Bachelor-Thesis}
 
 \department 		{Department of Mathematics and Computer Science}
 \faculty			{Natural Science Faculty of the University of Basel}
-\research		    {Computer Graphics and Vision (Gravis) \\ http://gravis.dmi.unibas.ch/}
+\research		    {Graphics and Vision Research Group (Gravis) \\ http://gravis.dmi.unibas.ch/}
 
 \examiner    		{Prof. Dr. Thomas Vetter}
 \supervisor  		{Dr. Adam Kortylewski}
@@ -61,6 +63,7 @@
 %\thesisnomencl
 %% ----------------------------------------------------------------
 \thesismain
+\frenchspacing
 \input{./Chapters/Chapter1}
 \input{./Chapters/Chapter2}
 \input{./Chapters/Chapter3}
